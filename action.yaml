@@ -1,0 +1,8 @@
+name: secret tester
+description: test secrets access in composite actions
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        python -c "print('length of my secret is: ', len('${{ secrets.TEST_SECRET }}'))"

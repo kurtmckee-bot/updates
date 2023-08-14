@@ -1,0 +1,16 @@
+name: "test reusable workflow secret access"
+
+on:
+  workflow_dispatch: null
+  workflow_call: null
+
+jobs:
+  update:
+    name: "test secret access"
+    runs-on: "ubuntu-latest"
+    defaults:
+      run:
+        shell: "bash"
+    steps:
+      - run: |
+          python -c "print('length of my secret is: ', len('${{ secrets.TEST_SECRET }}'))"
